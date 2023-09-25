@@ -1,6 +1,11 @@
-import './globals.css'
+
+import './globals.scss'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import AppFooter from './components/app.footer'
+import AppHeader from './components/app.header'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +20,28 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+
+      <body className={inter.className}>
+        <AppHeader />
+        <div style={{ minHeight: 'calc(100vh - 106px)' }}>
+          {children}
+        </div>
+        <AppFooter />
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </body>
+
     </html>
   )
 }
