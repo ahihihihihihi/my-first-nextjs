@@ -5,6 +5,7 @@ import AppTable from '../components/app.table';
 import useSWR from 'swr'
 
 const BlogsPage = () => {
+
     const fetcher = (url: string) => fetch(url)
         .then((res) => res.json());
 
@@ -19,6 +20,7 @@ const BlogsPage = () => {
     );
     if (error) return <div>failed to load</div>
     if (isLoading) return <div>loading...</div>
+
 
     // console.log(">>> check data: ", data)
 

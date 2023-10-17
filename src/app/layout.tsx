@@ -6,6 +6,8 @@ import AppFooter from './components/app.footer'
 import AppHeader from './components/app.header'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import { Suspense } from 'react'
+import Loading from '@/app/loading'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,7 +27,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <AppHeader />
         <div style={{ minHeight: 'calc(100vh - 106px)' }}>
-          {children}
+          <Suspense fallback={<Loading />}>
+            {children}
+          </Suspense>
         </div>
         <AppFooter />
         <ToastContainer
