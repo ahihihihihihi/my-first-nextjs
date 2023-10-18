@@ -21,6 +21,10 @@ const BlogsPage = () => {
     if (error) return <div>failed to load</div>
     if (isLoading) return <div>loading...</div>
 
+    //test error
+    // let abc: any = []
+    // console.log(abc[5][7])
+
 
     // console.log(">>> check data: ", data)
 
